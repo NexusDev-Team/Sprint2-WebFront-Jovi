@@ -1,11 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Câmera</title>
+    <title>Câmera Inteligente</title>
+
+    <link rel="stylesheet" href="../src/css/estilo.css">
 </head>
+
 <body>
-    
+
+<header class="topo">
+
+    <h1 class="logo">
+        Smart<span>Cam IA</span>
+    </h1>
+
+    <p>
+        Câmera inteligente com análise em tempo real
+    </p>
+
+</header>
+    <main class="camera-container">
+
+        <section class="camera-preview retrato-mode" id="cameraPreview">
+
+            <video
+                id="cameraVideo"
+                autoplay
+                muted
+                playsinline>
+            </video>
+
+            <div class="overlay" id="overlayIA">
+                IA analisando ambiente...
+            </div>
+
+            <div class="camera-info" id="cameraInfo">
+                Modo atual: Retrato
+            </div>
+
+        </section>
+
+        <section class="camera-acoes">
+
+            <button id="btnCapturar">
+                Capturar
+            </button>
+
+        </section>
+
+        <section class="status-camera">
+
+            <p id="statusMensagem">
+                IA pronta para captura.
+            </p>
+
+        </section>
+
+        <section class="modos-camera">
+
+            <button
+                class="modo ativo"
+                data-mode="retrato">
+
+                Retrato
+
+            </button>
+
+            <button
+                class="modo"
+                data-mode="noturno">
+
+                Noturno
+
+            </button>
+
+            <button
+                class="modo"
+                data-mode="iahd">
+
+                IA HD
+
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="../src/js/camera.js"></script>
+
 </body>
+
 </html>
