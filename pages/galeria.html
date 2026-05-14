@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Inteligente</title>
+
+    <link rel="stylesheet" href="../src/css/estilo.css">
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <h1 class="logo">
+            Smart<span>Gallery</span>
+        </h1>
+
+        <p>
+            Galeria inteligente com filtros IA
+        </p>
+
+    </header>
+
+    <main class="galeria-container">
+
+        <section class="filtros">
+
+            <button
+                class="filter-btn ativo"
+                data-filter="all">
+
+                Todas
+
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="pessoas">
+
+                Pessoas
+
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="pets">
+
+                Pets
+
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="documentos">
+
+                Documentos
+
+            </button>
+
+        </section>
+
+        <section class="cards-galeria">
+
+            <div class="card" data-category="pessoas">
+
+                <img
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800"
+                    alt="Pessoa">
+
+                <div class="card-info">
+
+                    <h3>📸 Retrato IA</h3>
+
+                    <p>
+                        Categoria: Pessoas
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card" data-category="documentos">
+
+                <img
+                    src="https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=800"
+                    alt="Documento">
+
+                <div class="card-info">
+
+                    <h3>📄 Documento</h3>
+
+                    <p>
+                        PDF inteligente detectado
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card" data-category="pets">
+
+                <img
+                    src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?q=80&w=800"
+                    alt="Pet">
+
+                <div class="card-info">
+
+                    <h3>🐶 Pet Detectado</h3>
+
+                    <p>
+                        IA reconheceu animal
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card" data-category="pessoas">
+
+                <img
+                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800"
+                    alt="Modo Noturno">
+
+                <div class="card-info">
+
+                    <h3>🌃 Modo Noturno</h3>
+
+                    <p>
+                        Captura otimizada por IA HD
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card" data-category="pets">
+
+                <img
+                    src="https://images.unsplash.com/photo-1517849845537-4d257902454a?q=80&w=800"
+                    alt="Pet">
+
+                <div class="card-info">
+
+                    <h3>🐱 Animal IA</h3>
+
+                    <p>
+                        Detecção automática
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="card" data-category="documentos">
+
+                <img
+                    src="https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=800"
+                    alt="Documento">
+
+                <div class="card-info">
+
+                    <h3>🧾 Scanner PDF</h3>
+
+                    <p>
+                        Documento salvo na nuvem
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="../src/js/galeria.js"></script>
+
+</body>
+
+</html>

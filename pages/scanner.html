@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scanner Inteligente</title>
+
+    <link rel="stylesheet" href="../src/css/estilo.css">
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <h1 class="logo">
+            Smart<span>Scan</span>
+        </h1>
+
+        <p>
+            Scanner inteligente de documentos
+        </p>
+
+    </header>
+
+    <main class="scanner-container">
+
+        <section
+            class="scanner-area"
+            id="scannerArea">
+
+            <video
+                id="scannerVideo"
+                autoplay
+                muted
+                playsinline>
+            </video>
+
+            <div class="scanner-overlay">
+
+                <div class="scanner-box"></div>
+
+                <div class="scanner-line"></div>
+
+            </div>
+
+        </section>
+
+        <section class="scanner-info">
+
+            <p id="scan-status">
+                Posicione o documento na área
+            </p>
+
+        </section>
+
+        <button id="scan-btn">
+            Escanear Documento
+        </button>
+
+    </main>
+
+    <script src="../src/js/scanner.js"></script>
+
+</body>
+
+</html>
