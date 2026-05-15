@@ -1,78 +1,140 @@
-const botaoScan =
-    document.getElementById("scan-btn");
 
-const statusScan =
-    document.getElementById("scan-status");
-
-const scannerArea =
-    document.getElementById("scannerArea");
-
-const scannerVideo =
-    document.getElementById("scannerVideo");
+const botaoScan   = document.getElementById("scan-btn");
+const statusScan  = document.getElementById("scan-status");
+const scannerArea = document.getElementById("scannerArea");
+const scannerVideo = document.getElementById("scannerVideo");
 
 
-// ============================
-// CAMERA REAL
-// ============================
+let streamAtivo = null;
+let escaneando  = false;
 
 async function iniciarScanner() {
+    statusScan.innerText = "Iniciando câmera...";
 
     try {
+        // Tenta primeiro a câmera traseira (ambiente)
+        streamAtivo = await navigator.mediaDevices.getUserMedia({
+            video: {
+                facingMode: { ideal: "environment" },
+                width:  { ideal: 1920 },
+                height: { ideal: 1080 }
+            }
+        });
 
-        const stream =
-            await navigator.mediaDevices.getUserMedia({
+    } catch (erroTraseira) {
+        console.warn("Câmera traseira indisponível, tentando câmera padrão...", erroTraseira);
+
+        try {
+            // Fallback: qualquer câmera disponível
+            streamAtivo = await navigator.mediaDevices.getUserMedia({
                 video: true
             });
 
-        scannerVideo.srcObject = stream;
-
-    } catch (erro) {
-
-        statusScan.innerText =
-            "Permita acesso à câmera.";
-
-        console.log(erro);
+        } catch (erroFallback) {
+            statusScan.innerText = "❌ Permita o acesso à câmera.";
+            botaoScan.disabled = true;
+            console.error("Nenhuma câmera encontrada:", erroFallback);
+            return;
+        }
     }
+
+    scannerVideo.srcObject = streamAtivo;
+
+    scannerVideo.onloadedmetadata = () => {
+        scannerVideo.play();
+        statusScan.innerText = "📷 Posicione o documento na área";
+        botaoScan.disabled = false;
+    };
 }
 
-iniciarScanner();
+function capturarFrame() {
+    const canvas = document.createElement("canvas");
+    canvas.width  = scannerVideo.videoWidth  || 1280;
+    canvas.height = scannerVideo.videoHeight || 720;
+
+    const ctx = canvas.getContext("2d");
+    ctx.drawImage(scannerVideo, 0, 0, canvas.width, canvas.height);
+
+    return canvas.toDataURL("image/jpeg", 0.92);
+}
 
 
-// ============================
-// ESCANEAR
-// ============================
-
-botaoScan.addEventListener("click", () => {
-
-    statusScan.innerText =
-        "Escaneando documento...";
-
+function ativarAnimacaoScan() {
     scannerArea.classList.add("scanner-active");
+}
 
+function desativarAnimacaoScan() {
+    scannerArea.classList.remove("scanner-active");
+}
+
+
+
+function salvarDocumento(imagemBase64) {
+    // Cria um link de download com a imagem capturada
+    const link = document.createElement("a");
+    link.href     = imagemBase64;
+    link.download = `documento_${Date.now()}.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+
+async function executarScan() {
+    if (escaneando) return;
+    escaneando = true;
+    botaoScan.disabled = true;
+
+    // Passo 1 — Aviso inicial
+    statusScan.innerText = "🔍 Escaneando documento...";
+    ativarAnimacaoScan();
+
+    await esperar(800);
+
+   
+    const imagemCapturada = capturarFrame();
     scannerVideo.pause();
 
-    setTimeout(() => {
+    await esperar(600);
 
-        statusScan.innerText =
-            "Documento detectado com IA";
+    // Passo 3 — "IA detectando"
+    statusScan.innerText = "🤖 Detectando documento com IA...";
 
-    }, 1200);
+    await esperar(1200);
 
-    setTimeout(() => {
+    // Passo 4 — Processando
+    statusScan.innerText = "⚙️ Processando imagem...";
 
-        statusScan.innerText =
-            "PDF salvo com sucesso!";
+    await esperar(800);
 
-        alert("Documento salvo na galeria!");
+    // Passo 5 — Salva e informa
+    salvarDocumento(imagemCapturada);
+    statusScan.innerText = "✅ Documento salvo com sucesso!";
+    desativarAnimacaoScan();
 
-    }, 2200);
+    await esperar(2000);
 
-    setTimeout(() => {
+    // Passo 6 — Volta ao estado inicial
+    statusScan.innerText = "📷 Posicione o documento na área";
+    scannerVideo.play();
+    botaoScan.disabled = false;
+    escaneando = false;
+}
 
-        scannerArea.classList.remove("scanner-active");
 
-        scannerVideo.play();
+function esperar(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-    }, 3000);
 
+botaoScan.addEventListener("click", executarScan);
+
+// Libera a câmera ao sair da página
+window.addEventListener("beforeunload", () => {
+    if (streamAtivo) {
+        streamAtivo.getTracks().forEach(track => track.stop());
+    }
 });
+
+
+iniciarScanner();
