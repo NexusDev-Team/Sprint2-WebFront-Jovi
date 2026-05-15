@@ -1,8 +1,17 @@
 # NEXUS VISION
 
 Projeto desenvolvido para a Sprint 2 de Web Development e Front-End Engineering.
+Nexus Dev
 
 ---
+
+## Integrantes Nexus Dev:
+
+- Isac Nilton Fernandes de Oliveira - RM573282
+- João Benedito de Oliveira Simplicio - RM570206
+- Leonardo Formigari Fontes - RM573291
+- Luis Fernando Leme Campos- RM570959
+- Nicolas Cinel Moreira - RM572940
 
 ## Sobre o Projeto
 
