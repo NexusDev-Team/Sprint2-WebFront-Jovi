@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Nexus Vision</title>
+    <link rel="stylesheet" href="../src/css/estilo.css">
+    <style>
+        .login-page {
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 8%;
+        }
+
+        .login-box {
+            background: var(--card);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            padding: 50px 44px;
+            width: 100%;
+            max-width: 440px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .login-box .tag {
+            text-align: center;
+        }
+
+        .login-box h1 {
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            color: var(--text);
+        }
+
+        .login-box p.subtitulo {
+            text-align: center;
+            color: var(--gray);
+            font-size: 15px;
+            margin-top: -12px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 16px;
+            border: 2px solid var(--light-gray);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .input-group input:focus {
+            border-color: var(--blue);
+        }
+
+        .input-group input::placeholder {
+            color: var(--gray);
+        }
+
+        .btn-entrar {
+            width: 100%;
+            padding: 15px;
+            border-radius: 24px;
+            border: none;
+            background: var(--blue);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .btn-entrar:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+
+        .mensagem-erro {
+            text-align: center;
+            color: #ef4444;
+            font-size: 14px;
+            font-weight: bold;
+            min-height: 20px;
+        }
+
+        .mensagem-sucesso {
+            text-align: center;
+            color: #22c55e;
+            font-size: 14px;
+            font-weight: bold;
+            min-height: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .login-box {
+                padding: 36px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo">
+            <span>◉</span>
+            <strong>Nexus Vision</strong>
+        </div>
+
+        <nav class="navbar" id="navbar">
+            <a href="../index.html">Home</a>
+            <a href="./camera.html">Câmera</a>
+            <a href="./scanner.html">Scanner</a>
+            <a href="./galeria.html">Galeria</a>
+            <a href="./sobre.html">Sobre</a>
+            <a href="./login.html" class="login-link">Login</a>
+        </nav>
+
+        <button id="themeBtn" class="theme-btn">🌙</button>
+        <button id="menuBtn" class="menu-btn">☰</button>
+    </header>
+
+    <main>
+        <section class="login-page">
+            <div class="login-box">
+
+                <p class="tag">Acesso à plataforma</p>
+                <h1>Bem-vindo</h1>
+                <p class="subtitulo">Entre com suas credenciais para continuar</p>
+
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Digite seu e-mail" />
+                    <input type="password" id="senha" placeholder="Digite sua senha" />
+                </div>
+
+                <p id="mensagem" class="mensagem-erro"></p>
+
+                <button class="btn-entrar" id="btnEntrar">Entrar</button>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Nexus Vision • Sprint 2 Web Development • HTML, CSS e JavaScript puro</p>
+    </footer>
+
+    <script src="../src/js/tema.js"></script>
+    <script src="../src/js/login.js"></script>
+
+</body>
+</html>
