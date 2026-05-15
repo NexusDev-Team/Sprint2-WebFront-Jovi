@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap');
-
 :root {
     --blue: #2F6BFF;
     --light-blue: #5CAEFF;
@@ -11,12 +9,6 @@
     --text: #0B1220;
     --card: #FFFFFF;
     --shadow: 0 10px 35px rgba(15, 23, 42, 0.12);
-
-    /* Camera accent colors */
-    --cam-green: #00ffaa;
-    --cam-blue: #38bdf8;
-    --cam-yellow: #facc15;
-    --cam-purple: #6366f1;
 }
 
 .dark-mode {
@@ -35,7 +27,7 @@
 }
 
 body {
-    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: var(--bg);
     color: var(--text);
 }
@@ -49,10 +41,6 @@ button {
     cursor: pointer;
     font-family: inherit;
 }
-
-/* ===================================
-   HEADER
-=================================== */
 
 .site-header {
     width: 100%;
@@ -73,8 +61,6 @@ button {
     gap: 10px;
     color: var(--blue);
     font-size: 18px;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
 }
 
 .navbar {
@@ -85,10 +71,8 @@ button {
 
 .navbar a {
     color: var(--gray);
-    font-weight: 500;
+    font-weight: bold;
     font-size: 14px;
-    letter-spacing: 0.3px;
-    transition: color 0.2s;
 }
 
 .navbar a:hover {
@@ -111,22 +95,11 @@ button {
     height: 42px;
     border-radius: 50%;
     font-size: 18px;
-    transition: background 0.2s;
-}
-
-.theme-btn:hover,
-.menu-btn:hover {
-    background: var(--light-blue);
-    color: white;
 }
 
 .menu-btn {
     display: none;
 }
-
-/* ===================================
-   HERO
-=================================== */
 
 .hero {
     min-height: calc(100vh - 80px);
@@ -146,15 +119,12 @@ button {
     color: var(--blue);
     font-weight: bold;
     margin-bottom: 14px;
-    font-family: 'Syne', sans-serif;
 }
 
 .hero h1 {
     font-size: 48px;
     line-height: 1.1;
     margin-bottom: 20px;
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
 }
 
 .hero p {
@@ -176,7 +146,6 @@ button {
     border-radius: 24px;
     font-weight: bold;
     border: none;
-    transition: 0.2s;
 }
 
 .primary-btn {
@@ -184,17 +153,9 @@ button {
     color: white;
 }
 
-.primary-btn:hover {
-    background: var(--light-blue);
-}
-
 .secondary-btn {
     background: var(--light-gray);
     color: var(--text);
-}
-
-.secondary-btn:hover {
-    background: #d1dae8;
 }
 
 .welcome-message {
@@ -243,7 +204,6 @@ button {
 
 .phone-screen h2 {
     margin: 18px 0 10px;
-    font-family: 'Syne', sans-serif;
 }
 
 .phone-screen p {
@@ -269,10 +229,6 @@ button {
     font-weight: bold;
 }
 
-/* ===================================
-   FEATURES
-=================================== */
-
 .features {
     padding: 60px 8%;
 }
@@ -284,8 +240,6 @@ button {
 
 .section-header h2 {
     font-size: 34px;
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
 }
 
 .cards {
@@ -305,7 +259,6 @@ button {
 .card h3 {
     margin-bottom: 12px;
     color: var(--blue);
-    font-family: 'Syne', sans-serif;
 }
 
 .card p {
@@ -313,22 +266,12 @@ button {
     line-height: 1.5;
 }
 
-/* ===================================
-   FOOTER
-=================================== */
-
 .site-footer {
     padding: 24px 8%;
     text-align: center;
     background: var(--card);
     color: var(--gray);
-    font-size: 13px;
-    letter-spacing: 0.3px;
 }
-
-/* ===================================
-   RESPONSIVE
-=================================== */
 
 @media (max-width: 850px) {
     .navbar {
@@ -365,7 +308,6 @@ button {
         justify-content: center;
     }
 }
-
 /* ===================================
    CAMERA INTELIGENTE
 =================================== */
@@ -374,59 +316,22 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 28px;
-    padding: 40px 20px;
-    min-height: calc(100vh - 80px);
-    background: radial-gradient(ellipse at 50% 0%, rgba(0, 255, 170, 0.05) 0%, transparent 70%),
-                var(--bg);
+    gap: 25px;
+    padding: 20px;
 }
 
-/* Preview da câmera */
 .camera-preview {
-    width: 340px;
-    height: 480px;
-    border-radius: 28px;
+    width: 360px;
+    height: 500px;
+    border-radius: 20px;
     overflow: hidden;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: border-color 0.4s, box-shadow 0.4s, filter 0.4s;
-    border: 2px solid var(--cam-green);
-    background: #060d18;
-    box-shadow:
-        0 0 0 1px rgba(0, 255, 170, 0.15),
-        0 0 40px rgba(0, 255, 170, 0.08),
-        0 24px 60px rgba(0, 0, 0, 0.5);
-}
-
-/* Cantos decorativos no preview */
-.camera-preview::before,
-.camera-preview::after {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    border-color: inherit;
-    border-style: solid;
-    border-width: 0;
-    z-index: 2;
-    pointer-events: none;
-    transition: border-color 0.4s;
-}
-.camera-preview::before {
-    top: 12px;
-    left: 12px;
-    border-top-width: 2px;
-    border-left-width: 2px;
-    border-top-left-radius: 6px;
-}
-.camera-preview::after {
-    bottom: 12px;
-    right: 12px;
-    border-bottom-width: 2px;
-    border-right-width: 2px;
-    border-bottom-right-radius: 6px;
+    transition: 0.4s;
+    border: 3px solid #00ffaa;
+    background: #111827;
 }
 
 #cameraVideo {
@@ -435,184 +340,111 @@ button {
     object-fit: cover;
 }
 
-/* Overlay IA */
 .overlay {
     position: absolute;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.55);
-    border: 1px solid rgba(0, 255, 170, 0.4);
-    padding: 7px 14px;
-    border-radius: 20px;
-    color: var(--cam-green);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    backdrop-filter: blur(8px);
-    white-space: nowrap;
-    z-index: 3;
-    transition: color 0.4s, border-color 0.4s;
+    top: 15px;
+    left: 15px;
+    background: rgba(0, 255, 170, 0.2);
+    border: 1px solid #00ffaa;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    backdrop-filter: blur(5px);
 }
 
-/* Info do modo */
 .camera-info {
     position: absolute;
-    bottom: 16px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.6);
-    padding: 8px 18px;
-    border-radius: 20px;
-    color: rgba(255, 255, 255, 0.75);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.4px;
-    backdrop-filter: blur(8px);
-    white-space: nowrap;
-    z-index: 3;
+    bottom: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 16px;
+    border-radius: 10px;
+    color: white;
 }
 
-/* Botão capturar */
 .camera-acoes {
     display: flex;
     gap: 15px;
 }
-
-.camera-acoes button {
-    padding: 0;
-    width: 72px;
-    height: 72px;
-    border: none;
-    border-radius: 50%;
-    background: var(--cam-green);
-    color: #060d18;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.3px;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 0 0 6px rgba(0, 255, 170, 0.15);
-    position: relative;
+#cameraVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-
-.camera-acoes button::after {
-    content: '';
-    position: absolute;
-    inset: 5px;
-    border-radius: 50%;
-    border: 2px solid rgba(0, 0, 0, 0.2);
+.camera-acoes button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 12px;
+    background: #00ffaa;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .camera-acoes button:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 0 10px rgba(0, 255, 170, 0.1);
+    transform: scale(1.05);
 }
 
-.camera-acoes button:active {
-    transform: scale(0.96);
-}
-
-/* Status */
 .status-camera {
-    font-size: 14px;
-    color: var(--cam-blue);
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    min-height: 20px;
-    opacity: 0.85;
+    font-size: 18px;
+    color:  #38bdf8;
 }
 
-/* Botões de modo */
 .modos-camera {
     display: flex;
-    gap: 10px;
-    background: rgba(0, 0, 0, 0.06);
-    padding: 6px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.dark-mode .modos-camera {
-    background: rgba(255, 255, 255, 0.04);
+    gap: 12px;
 }
 
 .modo {
-    padding: 10px 20px;
+    padding: 12px 18px;
     border: none;
     border-radius: 10px;
-    background: transparent;
-    color: var(--gray);
-    font-size: 13px;
-    font-weight: 500;
+    background: #1e293b;
+    color: white;
     cursor: pointer;
-    transition: background 0.25s, color 0.25s, transform 0.2s;
-    letter-spacing: 0.3px;
+    transition: 0.3s;
 }
 
 .modo:hover {
-    background: rgba(0, 255, 170, 0.08);
-    color: var(--cam-green);
-    transform: none;
+    transform: scale(1.03);
 }
 
 .ativo {
-    background: var(--cam-green) !important;
-    color: #060d18 !important;
-    font-weight: 700;
+    background: #00ffaa;
+    color: black;
+    font-weight: bold;
 }
 
-/* Modos visuais */
 .flash {
-    animation: flashAnim 0.35s ease-out;
+    animation: flashAnim 0.3s;
 }
 
 @keyframes flashAnim {
-    0%   { filter: brightness(3); }
-    100% { filter: brightness(1); }
+
+    0% {
+        filter: brightness(2);
+    }
+
+    100% {
+        filter: brightness(1);
+    }
 }
 
 .retrato-mode {
-    border-color: var(--cam-green);
-    box-shadow:
-        0 0 0 1px rgba(0, 255, 170, 0.15),
-        0 0 40px rgba(0, 255, 170, 0.08),
-        0 24px 60px rgba(0, 0, 0, 0.5);
+    border-color: #00ffaa;
 }
 
 .noturno-mode {
-    border-color: var(--cam-purple);
-    filter: brightness(0.55);
-    box-shadow:
-        0 0 0 1px rgba(99, 102, 241, 0.2),
-        0 0 40px rgba(99, 102, 241, 0.12),
-        0 24px 60px rgba(0, 0, 0, 0.6);
+    border-color: #6366f1;
+    filter: brightness(0.5);
 }
 
 .iahd-mode {
-    border-color: var(--cam-yellow);
-    filter: contrast(1.15) saturate(1.2);
-    box-shadow:
-        0 0 0 1px rgba(250, 204, 21, 0.2),
-        0 0 40px rgba(250, 204, 21, 0.1),
-        0 24px 60px rgba(0, 0, 0, 0.5);
+    border-color: #facc15;
+    filter: contrast(1.2) saturate(1.3);
 }
-
-/* Sincroniza overlay e cantos com o modo ativo */
-.noturno-mode .overlay {
-    color: var(--cam-purple);
-    border-color: rgba(99, 102, 241, 0.5);
-}
-
-.iahd-mode .overlay {
-    color: var(--cam-yellow);
-    border-color: rgba(250, 204, 21, 0.5);
-}
-
-/* ===================================
-   TOPO (logo alternativo)
-=================================== */
-
 .topo {
     text-align: center;
     padding-top: 25px;
@@ -625,7 +457,6 @@ button {
     color: var(--navy);
     letter-spacing: 0.5px;
     margin-bottom: 6px;
-    font-family: 'Syne', sans-serif;
 }
 
 .topo .logo span {
@@ -635,11 +466,7 @@ button {
 .logo span {
     color: var(--blue);
 }
-
-/* ===================================
-   SCANNER
-=================================== */
-
+/* SCANNER */
 .scanner-container {
     display: flex;
     flex-direction: column;
@@ -655,18 +482,20 @@ button {
     overflow: hidden;
     position: relative;
     background: black;
-    border: 3px solid var(--cam-blue);
+    border: 3px solid #38bdf8;
 }
 
 #scannerVideo {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    
 }
 
 .scanner-overlay {
     position: absolute;
     inset: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -675,55 +504,72 @@ button {
 .scanner-box {
     width: 250px;
     height: 340px;
-    border: 3px solid var(--cam-blue);
+
+    border: 3px solid #38bdf8;
     border-radius: 12px;
+
     box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
 }
 
 .scanner-line {
     position: absolute;
+
     width: 250px;
     height: 4px;
-    background: var(--cam-blue);
+
+    background: #38bdf8;
+
     top: 80px;
+
     border-radius: 20px;
-    box-shadow: 0 0 12px var(--cam-blue);
+
+    box-shadow: 0 0 12px #38bdf8;
 }
 
 .scanner-active .scanner-line {
-    animation: scannerMove 2s ease-in-out infinite alternate;
+
+    animation:
+        scannerMove 2s ease-in-out infinite alternate;
+
 }
 
 @keyframes scannerMove {
-    0%   { top: 80px; }
-    100% { top: 400px; }
+
+    0% {
+        top: 80px;
+    }
+
+    100% {
+        top: 400px;
+    }
 }
 
 .scanner-info {
-    color: var(--cam-blue);
+    color:  #38bdf8;
     font-size: 18px;
 }
 
 #scan-btn {
+
     padding: 14px 28px;
+
     border: none;
     border-radius: 12px;
-    background: var(--cam-blue);
+
+    background: #38bdf8;
+
     color: white;
+
     font-size: 16px;
+
     cursor: pointer;
+
     transition: 0.3s;
-    font-weight: 600;
 }
 
 #scan-btn:hover {
     transform: scale(1.05);
-    background: #60cbfa;
 }
-
-/* ===================================
-   GALERIA
-=================================== */
 
 .galeria-container {
     padding: 20px;
@@ -745,7 +591,6 @@ button {
     color: white;
     cursor: pointer;
     transition: 0.3s;
-    font-weight: 500;
 }
 
 .filter-btn:hover {
@@ -753,21 +598,29 @@ button {
 }
 
 .filter-btn.ativo {
-    background: var(--cam-blue);
+    background: #38bdf8;
 }
 
 .cards-galeria {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(160px, 1fr));
+
     gap: 20px;
 }
 
 .card {
     background: #1e293b;
+
     border-radius: 18px;
+
     overflow: hidden;
+
     color: white;
+
     transition: 0.3s;
+
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
@@ -788,7 +641,6 @@ button {
 .card-info h3 {
     margin-bottom: 8px;
     font-size: 18px;
-    font-family: 'Syne', sans-serif;
 }
 
 .card-info p {
@@ -797,15 +649,19 @@ button {
 }
 
 @media (max-width: 480px) {
-    .cards-galeria {
-        grid-template-columns: 1fr;
-    }
-}
 
+    .cards-galeria {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
 /* ===================================
-   IMAGENS
+   CORREÇÃO DE IMAGENS
 =================================== */
 
+/* Logo no header */
 #logo {
     width: 36px;
     height: 36px;
@@ -813,6 +669,7 @@ button {
     border-radius: 8px;
 }
 
+/* Imagem do slideshow */
 #slideImage {
     width: 120px;
     height: 120px;
